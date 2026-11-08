@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#100d27">
+<title>BOMBLING — A Little Pop Goes a Long Way</title>
+<meta name="description" content="Plant a seed, make it pop and bounce through twelve tiny pixel caves. A touch-friendly bomb puzzle platformer.">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app">
+  <header><a class="wordmark" href="./" aria-label="BOMBLING home">BOMBLING<span>✦</span></a><div class="headerActions"><button id="book" aria-label="Open chamber map">▦</button><button id="pause" aria-label="Pause game">Ⅱ</button></div></header>
+  <aside class="intro">
+    <div class="seal">A LITTLE POP GOES A LONG WAY</div>
+    <h1>Small seed.<br>Big adventure.</h1>
+    <p class="tagline">The way up is a tiny explosion.</p>
+    <div class="chapterCard"><span id="zone">VIOLET ROOTS</span><strong id="roomTitle">A Little Lift</strong><div><span id="roomNumber">01 / 12</span><span id="collection">✿ 0 / 12</span></div></div>
+    <button id="guide" class="helpButton">How to pop <span>?</span></button>
+    <div class="keyboardHelp">← → MOVE · Z PLACE · X POP</div>
+  </aside>
+  <section class="play" aria-label="Platform puzzle">
+    <div class="screen" id="screen">
+      <canvas id="game" width="640" height="512" role="img" aria-label="Pink seedling in a violet pixel cave"></canvas>
+      <div class="screenHud" aria-hidden="true"><span id="seedCount">● ●</span><span id="flowerState">✿</span></div>
+      <div id="roomResult" class="roomResult" role="status" hidden><span id="resultTitle">A little victory!</span><strong id="stars">✦ ✦ ✦</strong><small id="resultNote"></small></div>
+    </div>
+    <div class="hintBar"><span id="status" role="status">Place a seed. Pop it. Steer toward the flower.</span><button id="restart" aria-label="Restart this chamber">↻</button></div>
+    <div class="controls" id="controls">
+      <div class="movement"><button id="left" aria-label="Move left">◀</button><button id="right" aria-label="Move right">▶</button></div>
+      <button id="plant" class="plant"><span aria-hidden="true">●</span><small>PLACE</small></button>
+      <button id="pop" class="pop"><span aria-hidden="true">✹</span><small>POP</small></button>
+    </div>
+    <button id="next" class="next" hidden>Next chamber →</button>
+    <div class="footer"><span>✿ FIND THE FLOWER</span><span>REACH THE BLOOM →</span></div>
+  </section>
+  <dialog id="dialog"><div class="modalHeader"><div><span class="eyebrow" id="modalKicker">BOMBLING</span><h2 id="modalTitle"></h2></div><button id="close" aria-label="Close menu">×</button></div><div id="modalBody"></div></dialog>
+</main>
+<script type="module" src="app.mjs"></script>
+</body></html>
