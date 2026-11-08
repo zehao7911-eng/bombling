@@ -39,7 +39,7 @@ function connect(){
     scene.effects([{type:'flower',x:run.x,y:run.y-15}],player.gentle,player.rewards.comment);
     sound('flower');
    }
-   if(dialog.open&&mode==='settings')menuContents();
+   if(dialog.open&&mode==='settings')socialContents();
   },
  });
 }
@@ -216,10 +216,23 @@ function menuContents(){
   });
   addButton(rows,'How to pop',null,()=>{mode='guide';menuContents();});
   addButton(rows,'Restart chamber','Fresh seeds, stones and boxes.',()=>{swap(run.index);dialog.close();});
-  const support=sdk.support();
-  if(support.like)addButton(rows,player.rewards.like?'Gold seed buds earned':'Gold seed buds','Optional GameWave like cosmetic.',()=>{},{disabled:true});
-  if(support.comment)addButton(rows,player.rewards.comment?'Prism sparks earned':'Prism sparks','Optional GameWave direct comment cosmetic.',()=>{},{disabled:true});
+  const social=document.createElement('div');
+  social.id='socialRewards';
+  social.className='rows';
+  body.append(social);
+  socialContents();
  }
+}
+
+function socialContents(){
+ const social=$('socialRewards');
+ if(!social)return;
+ social.replaceChildren();
+ const support=sdk.support();
+ if(support.like)addButton(social,player.rewards.like?'Gold seed buds earned':'Gold seed buds',
+  'Optional GameWave like cosmetic.',()=>{},{disabled:true});
+ if(support.comment)addButton(social,player.rewards.comment?'Prism sparks earned':'Prism sparks',
+  'Optional GameWave direct comment cosmetic.',()=>{},{disabled:true});
 }
 
 function openMenu(type){
